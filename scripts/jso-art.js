@@ -7,22 +7,20 @@ function artPiece( id, name, desc, price ) {
   this.price = price;
   this.priceEuros = convertToEuros;
   this.displayItem = function () {
-    return "<tr><td onclick='details(" + this.id + ")'>" + this.id + "</td>" +
-      "<td>" + this.name + "</td>" +
-      "<td onclick='deleteMe(" + this.id + ")'>" + this.desc + "</td>" +
-      "<td style='width:100px; text-align: right;'>" + this.price + "</td></tr>";
+    return `<tr><td onclick='details(${this.id})'>${this.id}</td>
+      <td>${this.name}</td>
+      <td onclick='deleteMe(${this.id})'>${this.desc}</td>
+      <td style='width:100px; text-align: right;'>${this.price}</td></tr>`;
   }
 }
 function bigSale() {
-
   showCart();
 }
 
 function details( id ) {
-  for ( var i = 0; i < purchases.length; i++ ) {
-    if ( purchases[ i ].id == id ) {
-      let details = "This item " + purchases[ i ].name +
-        " is for sale for $" + purchases[ i ].price;
+  for ( let item of purchases ) {
+    if ( item.id == id ) {
+      let details = `This item ${item.name} is for sale for $${item.price}`;
       document.getElementById( 'divDetails' ).innerHTML = details;
     }
   }

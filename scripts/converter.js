@@ -20,7 +20,7 @@ function CtoF () {
 function getColor(fahr) {
     let color;
     if (fahr <= 32) {
-        color = 'blue'
+        color = 'lightblue'
     } else if (fahr > 32 && fahr <= 60) {
         color = 'yellow';
     } else if (fahr > 60 && fahr < 88) {
